@@ -1,0 +1,28 @@
+# Specify the build system and backend to use for building the package
+[build-system]
+requires = ["hatchling"]          # Build tool dependency
+build-backend = "hatchling.build" # Backend for building
+
+# Configure how the version is determined (from __init__.py)
+[tool.hatch.version]
+path = "my_sdk/__init__.py"
+
+# Specify which packages to include in the wheel distribution
+[tool.hatch.build.targets.wheel]
+packages = ["my_sdk"]
+
+# Project metadata
+[project]
+name = "my-sdk"                   # Package name
+dynamic = ["version"]             # Version is read dynamically
+description = "My SDK"            # Short description
+readme = "README.md"              # Long description from README
+requires-python = ">=3.10"        # Minimum Python version required
+dependencies = [                  # Runtime dependencies
+    "apache-airflow>=2.7.0",
+    "typing-extensions>=4.0.0",
+]
+
+# Register an Airflow provider entry point
+[project.entry-points.apache_airflow_provider]
+provider_info = "my_sdk:get_provider_info" # Entry point for Airflow provider
