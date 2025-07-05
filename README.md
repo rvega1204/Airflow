@@ -46,10 +46,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ---
 
-...
-
----
-
 ![flower](./imgs/flower.png)
 ![group](./imgs/group.png)
 ![flower2](./imgs/flower2.png)
